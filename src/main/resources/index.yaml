@@ -1,0 +1,9 @@
+indexes:
+
+- kind: stock
+  ancestor: no
+  properties:
+  - name: symbol
+    direction: asc
+  - name: created
+    direction: asc
