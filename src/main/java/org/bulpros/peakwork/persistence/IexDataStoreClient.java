@@ -25,16 +25,15 @@ public class IexDataStoreClient {
 
     // Create an authorized Datastore service using Application Default Credentials.
     private final DatastoreService datastoreService = DatastoreServiceFactory.getDatastoreService();
-    
 
-    public Key addStock(String symbol,BatchStocks stockData) {
+    public Key addStock(String symbol, BatchStocks stockData) {
         Entity stock = new Entity("stock");
-                        stock.setProperty("symbol", symbol);
-                        stock.setProperty("companyName", stockData.getKeyStats().getCompanyName());
-                        stock.setProperty("price", stockData.getPrice().toEngineeringString());
-                        stock.setProperty("logo", StringValue.newBuilder(stockData.getLogo().getUrl()).setExcludeFromIndexes(true).build());
-                        stock.setProperty("created", Timestamp.now());
-                        
+        stock.setProperty("symbol", symbol);
+        stock.setProperty("companyName", stockData.getKeyStats().getCompanyName());
+        stock.setProperty("price", stockData.getPrice().toEngineeringString());
+        stock.setProperty("logo", StringValue.newBuilder(stockData.getLogo().getUrl()).setExcludeFromIndexes(true).build());
+        stock.setProperty("created", Timestamp.now());
+
         return datastoreService.put(stock);
     }
 
@@ -45,18 +44,18 @@ public class IexDataStoreClient {
             symbolFilters.add(new Query.FilterPredicate("symbol", FilterOperator.EQUAL, symbols[i]));
         }
         Query.CompositeFilter symbolFilter = new Query.CompositeFilter(Query.CompositeFilterOperator.OR, symbolFilters);
-        
+
         List<Filter> dateFilters = new ArrayList<Filter>();
         dateFilters.add(new Query.FilterPredicate("created", FilterOperator.GREATER_THAN_OR_EQUAL, fromDate));
         dateFilters.add(new Query.FilterPredicate("created", FilterOperator.LESS_THAN_OR_EQUAL, toDate));
-        
+
         Query.CompositeFilter dateFilter = new Query.CompositeFilter(Query.CompositeFilterOperator.AND, dateFilters);
-        
+
         List<Filter> filters = new ArrayList<Filter>();
         filters.add(symbolFilter);
         filters.add(dateFilter);
         Query.CompositeFilter filter = new Query.CompositeFilter(Query.CompositeFilterOperator.AND, filters);
-        
+
         query.setFilter(filter);
         query.addSort("created", SortDirection.ASCENDING);
 
