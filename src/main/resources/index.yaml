@@ -5,5 +5,5 @@ indexes:
   properties:
   - name: symbol
     direction: asc
-  - name: created
+  - name: createdAt
     direction: asc
