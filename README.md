@@ -31,6 +31,9 @@ Make you project up and running
 
 At this point You should be able to run the app and connect remotely to the Google Cloud Datastore
 
+Make sure that you have properly your set of symbols to process by the service uder iex.symbols property name in application.properties file.
+Also you can configure the poll interval under iex.interval property name in application.properties file.
+
 Example of http request for getting stock data.
 
 http://localhost:8080/stocks/AAPL,FB/interval?from=2018-11-05T00:00:00&to=2018-11-05T23:59:00
