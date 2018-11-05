@@ -3,7 +3,7 @@
 	
 ##Project description
 
- The microservice aims to serves as a comuttator to Iex market data.
+ The microservice aims to serves as a commutator to Iex market data.
  It gathers stock market data for configurable set of companies symbols and periodical timing.
  The collected data is then persisted with aid of google datastore service.
  The application have one endpoint for retrieving historical records of stock data in Json array type.
@@ -20,25 +20,24 @@
 	
 ## Getting Started
 
- Clone or download copy of the project here: https://github.com/stpdimitrov/peakwork.git
+Clone or download copy of the project here: https://github.com/stpdimitrov/peakwork.git
 
-### Prerequisites
-
- For dev environment:
-	Following software should be already installed:
-	- Java 8+
-	- Maven 3+
-	- IDE of you choice (original developmet have been done on Eclipe)
-	- Google Cloud SDK
+For dev environment:
+Following software should be already installed:
+ - Java 8+
+ - Maven 3+
+ - IDE of you choice (original development have been done on Eclipse)
+ - Google Cloud SDK
+ - Project playground https://console.cloud.google.com/home/dashboard?project=peakwork-221519
 	
 ### Installing
 
- Make you project up and running
- - Simple mvn package should work for local perposes.
+Make you project up and running
+ - Simple mvn package should work for local purposes.
  - To fire your app just run : mvn spring-boot:run
  - To debug your app : mvn spring-boot:run -Dspring-boot.run.jvmArguments="-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=5005" and listen to port 5005 on your IDE
- - Google Cloud Data store need some app authentication for remote service processing so you should make sure your spring.cloud.gcp.datastore.credentials.location evnironment property 
- is pointing to the right location. For the demo purposess the Peakwork-c3f22c4a7d94.json is directly included in the project.
+ - Google Cloud Data store need some app authentication for remote service processing so you should make sure your spring.cloud.gcp.datastore.credentials.location environment property 
+ is pointing to the right location. For the demo purposes the Peakwork-c3f22c4a7d94.json is directly included in the project.
 
  At this point You should be able to run the app and connect remotely to the Google Cloud Datastore
 
@@ -55,14 +54,15 @@ N/A
 
 ## Deployment
 
-### Prerequisites
+Prerequisites
 
  -Google Cloud SDK shell contains all gcloud, docker, and kubectl command-line tools.
 
- Your project contains a Docker file wich will be used to make a container image.
+ Your project contains a Docker file which will be used to make a container image.
  - Build an image : docker build -t gcr.io/peakwork-221411/<name_of_your_peakwork_project>:<version> .
  - Probably you will need to configure your container registry at first try : gcloud auth configure-docker
  - Push your image to container registry : push gcr.io/peakwork-221411/peakwork:v1
+ - Deploy the registered image to Kubernates cluster (which should be available and running)
 
 
 ## Built With
@@ -86,4 +86,15 @@ N/A
 
 This project is licensed under the MIT License
 
+“Data provided for free by IEX. View IEX’s Terms of Use.”
+
 ## Acknowledgments
+
+For production ready use to the application should be added 
+ -the consistency of the stored data should be well secured
+ -integration test should be implemented as well as unit tests in the process of complicating the logic
+ -scalability should be easy to obtain
+ -different stage profiles should be added
+ -application profiles dependent properties
+ -circuit breakers model can be used
+ -Deployment.yml file can be introduced to suite Kubernetes deployment
