@@ -8,13 +8,16 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.1.0.RELEASE</version>
-		<relativePath /> <!-- lookup parent from repository -->
+		<relativePath/><!-- lookup parent from repository -->
 	</parent>
 	
-	<groupId>org.bulpros</groupId>
+	<groupId>com.bulpros</groupId>
 	<artifactId>peakwork</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	<version>1.0.0.RELEASE</version>
+	<packaging>war</packaging>
+
+
+
 
 	<name>peakwork</name>
 	<description>Peakwork Development Challenge</description>
@@ -31,8 +34,10 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
+		<spring-cloud-commons.version>2.1.0.BUILD-SNAPSHOT</spring-cloud-commons.version>
 	</properties>
-
+	
+	
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -49,29 +54,15 @@
 		</dependency>
 		<dependency>
 		    <groupId>org.springframework.cloud</groupId>
-		    <artifactId>spring-cloud-gcp-starter</artifactId>
-		    <version>1.1.0.M2</version>
-		</dependency>
-		<dependency>
-		    <groupId>org.springframework.cloud</groupId>
 		    <artifactId>spring-cloud-gcp-starter-data-datastore</artifactId>
 		    <version>1.1.0.M2</version>
 		</dependency>
-
 		<dependency>
 			<groupId>pl.zankowski</groupId>
 			<artifactId>iextrading4j-all</artifactId>
 			<version>2.2.5</version>
 		</dependency>
-		<dependency>
-			<groupId>com.google.cloud</groupId>
-			<artifactId>google-cloud-datastore</artifactId>
-			<version>1.48.0</version>
-		</dependency>
-		<dependency>
-			<groupId>com.google.appengine</groupId>
-			<artifactId>appengine-api-1.0-sdk</artifactId>
-		</dependency>
+		
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
