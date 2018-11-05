@@ -21,6 +21,14 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
-target/classes/META-INF/*.*
+*/target/**
 .project
 .settings/*.*
+target/classes/application.properties
+target/classes/bootstrap.properties
+target/classes/index.yaml
+target/classes/META-INF/MANIFEST.MF
+target/classes/META-INF/maven/com.bulpros/peakwork/pom.properties
+target/classes/META-INF/maven/com.bulpros/peakwork/pom.xml
+target/classes/Peakwork-c3f22c4a7d94.json
+target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst
