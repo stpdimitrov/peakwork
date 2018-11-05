@@ -14,7 +14,7 @@
 	<groupId>com.bulpros</groupId>
 	<artifactId>peakwork</artifactId>
 	<version>1.0.0.RELEASE</version>
-	<packaging>jar</packaging>
+	<packaging>war</packaging>
 
 	<name>peakwork</name>
 	<description>Peakwork Development Challenge</description>
