@@ -17,12 +17,24 @@ import org.springframework.web.bind.annotation.RestController;
 import com.bulpros.peakwork.entity.Stock;
 import com.bulpros.peakwork.service.IexTradingStockService;
 
+/**
+ * The Class IexTradingController.
+ */
 @RestController
 public class IexTradingController {
 
+    /** The iex trading stock service. */
     @Autowired
     IexTradingStockService iexTradingStockService;
 
+    /**
+     * Gets the stocks.
+     *
+     * @param symbols the symbols
+     * @param fromDate the from date
+     * @param toDate the to date
+     * @return the stocks
+     */
     @RequestMapping(method = RequestMethod.GET, value = "/stocks/{symbols}/interval", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public List<Stock> getStocks(@PathVariable String[] symbols,

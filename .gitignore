@@ -25,3 +25,4 @@ target/
 .project
 .settings/*.*
 *.prefs
+.settings/org.eclipse.jdt.core.prefs

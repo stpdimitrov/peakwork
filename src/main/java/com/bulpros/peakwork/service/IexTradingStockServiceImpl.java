@@ -22,12 +22,19 @@ import pl.zankowski.iextrading4j.client.IEXTradingClient;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.BatchMarketStocksRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.BatchStocksType;
 
+/**
+ * The Class IexTradingStockServiceImpl.
+ */
 @Service
 public class IexTradingStockServiceImpl implements IexTradingStockService {
 
+    /** The stock repository. */
     @Autowired
     StockRepository stockRepository;
 
+    /** 
+     * @see com.bulpros.peakwork.service.IexTradingStockService#fetchStocks(java.lang.String[])
+     */
     @Override
     public Supplier<Map<String, BatchStocks>> fetchStocks(String[] symbols) {
         final IEXTradingClient iexTradingClient = IEXTradingClient.create();
@@ -41,6 +48,9 @@ public class IexTradingStockServiceImpl implements IexTradingStockService {
                     .build());
     }
 
+    /**
+     * @see com.bulpros.peakwork.service.IexTradingStockService#retrieveStocks(java.lang.String[], java.time.LocalDateTime, java.time.LocalDateTime)
+     */
     @Override
     public List<Stock> retrieveStocks(String[] symbols, LocalDateTime fromDate, LocalDateTime toDate) {
         List<Stock> result = new ArrayList<Stock>();
@@ -54,6 +64,9 @@ public class IexTradingStockServiceImpl implements IexTradingStockService {
         return result;
     }
 
+    /* (non-Javadoc)
+     * @see com.bulpros.peakwork.service.IexTradingStockService#storeStocks(java.util.function.Supplier)
+     */
     @Override
     public void storeStocks(Supplier<Map<String, BatchStocks>> stocks) {
         stocks.get().forEach((k, v) -> {
